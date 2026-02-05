@@ -27,6 +27,7 @@ def create_chat_completion(response: str, role: str = "assistant") -> ChatComple
 
 @patch("openai.resources.chat.Completions.create")
 def test_Chatbot(openai_create):
+    print("This is a print statement")
     at = AppTest.from_file("Chatbot.py").run()
     assert not at.exception
     at.chat_input[0].set_value("Do you know any jokes?").run()
